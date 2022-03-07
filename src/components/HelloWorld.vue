@@ -3,6 +3,7 @@
     <h1>{{ msg }}</h1>
     <P>HI THERE</P>
     <p>wee woo wee woo</p>
+    <P>HI THERE, FROM BEN</P>
     <p>
       For a guide and recipes on how to configure / customize this project,
       <br />
