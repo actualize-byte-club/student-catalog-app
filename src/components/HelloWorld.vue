@@ -1,11 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <P>HI THERE</P>
-    <p>wee woo wee woo</p>
-    <P>HI THERE, FROM BEN</P>
     <p>
-      Meghan Rocks
       <br />
       check out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>
