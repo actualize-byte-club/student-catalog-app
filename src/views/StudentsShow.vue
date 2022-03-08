@@ -66,14 +66,16 @@ export default {
 
 <template>
   <div class="student-show">
-    <h1>{{ student.first_name + student.last_name }}</h1>
+    <h1>{{ student.first_name + " " + student.last_name }}</h1>
+    <h5>Experience:</h5>
     <div v-for="exp in student.resume_data.experience" :key="exp.id">
-      <p>{{ exp.start_date }}</p>
-      <p>{{ exp.end_date }}</p>
-      <p>{{ exp.job_title }}</p>
-      <p>{{ exp.company_name }}</p>
-      <p>{{ exp.details }}</p>
+      <p>Start date: {{ exp.start_date }}</p>
+      <p>End Date: {{ exp.end_date }}</p>
+      <p>Job Title: {{ exp.job_title }}</p>
+      <p>Company Name: {{ exp.company_name }}</p>
+      <p>Details: {{ exp.details }}</p>
     </div>
+    <h5>Education:</h5>
     <div v-for="edu in student.resume_data.education" :key="edu.id">
       <p>{{ edu.start_date }}</p>
       <p>{{ edu.end_date }}</p>
@@ -81,9 +83,11 @@ export default {
       <p>{{ edu.university_name }}</p>
       <p>{{ edu.details }}</p>
     </div>
+    <h5>Skills:</h5>
     <div v-for="skill in student.resume_data.skills" :key="skill.id">
       <p>{{ skill }}</p>
     </div>
+    <h5>Capstone:</h5>
     <div v-for="capstone in student.capstone" :key="capstone.id">
       <p>{{ capstone.name }}</p>
       <p>{{ capstone.description }}</p>
