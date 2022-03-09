@@ -5,6 +5,7 @@ export default {
     return {
       students: [
         {
+          id: 1,
           first_name: "Ben",
           last_name: "Astengo",
           capstone: [
@@ -17,6 +18,128 @@ export default {
           ],
         },
         {
+          id: 2,
+          first_name: "Camden",
+          last_name: "Parker",
+          capstone: [
+            {
+              title: "NeedABike",
+              image: "https://i.pinimg.com/originals/c3/02/af/c302afefbc869048ce8cf9aeeac10338.jpg",
+            },
+          ],
+        },
+        {
+          id: 2,
+          first_name: "Camden",
+          last_name: "Parker",
+          capstone: [
+            {
+              title: "NeedABike",
+              image: "https://i.pinimg.com/originals/c3/02/af/c302afefbc869048ce8cf9aeeac10338.jpg",
+            },
+          ],
+        },
+        {
+          id: 2,
+          first_name: "Camden",
+          last_name: "Parker",
+          capstone: [
+            {
+              title: "NeedABike",
+              image: "https://i.pinimg.com/originals/c3/02/af/c302afefbc869048ce8cf9aeeac10338.jpg",
+            },
+          ],
+        },
+        {
+          id: 2,
+          first_name: "Camden",
+          last_name: "Parker",
+          capstone: [
+            {
+              title: "NeedABike",
+              image: "https://i.pinimg.com/originals/c3/02/af/c302afefbc869048ce8cf9aeeac10338.jpg",
+            },
+          ],
+        },
+        {
+          id: 2,
+          first_name: "Camden",
+          last_name: "Parker",
+          capstone: [
+            {
+              title: "NeedABike",
+              image: "https://i.pinimg.com/originals/c3/02/af/c302afefbc869048ce8cf9aeeac10338.jpg",
+            },
+          ],
+        },
+        {
+          id: 2,
+          first_name: "Camden",
+          last_name: "Parker",
+          capstone: [
+            {
+              title: "NeedABike",
+              image: "https://i.pinimg.com/originals/c3/02/af/c302afefbc869048ce8cf9aeeac10338.jpg",
+            },
+          ],
+        },
+        {
+          id: 2,
+          first_name: "Camden",
+          last_name: "Parker",
+          capstone: [
+            {
+              title: "NeedABike",
+              image: "https://i.pinimg.com/originals/c3/02/af/c302afefbc869048ce8cf9aeeac10338.jpg",
+            },
+          ],
+        },
+        {
+          id: 2,
+          first_name: "Camden",
+          last_name: "Parker",
+          capstone: [
+            {
+              title: "NeedABike",
+              image: "https://i.pinimg.com/originals/c3/02/af/c302afefbc869048ce8cf9aeeac10338.jpg",
+            },
+          ],
+        },
+        {
+          id: 2,
+          first_name: "Camden",
+          last_name: "Parker",
+          capstone: [
+            {
+              title: "NeedABike",
+              image: "https://i.pinimg.com/originals/c3/02/af/c302afefbc869048ce8cf9aeeac10338.jpg",
+            },
+          ],
+        },
+        {
+          id: 2,
+          first_name: "Camden",
+          last_name: "Parker",
+          capstone: [
+            {
+              title: "NeedABike",
+              image: "https://i.pinimg.com/originals/c3/02/af/c302afefbc869048ce8cf9aeeac10338.jpg",
+            },
+          ],
+        },
+        {
+          id: 2,
+          first_name: "Camden",
+          last_name: "Parker",
+          capstone: [
+            {
+              title: "NeedABike",
+              image: "https://i.pinimg.com/originals/c3/02/af/c302afefbc869048ce8cf9aeeac10338.jpg",
+            },
+          ],
+        },
+        {
+          id: 2,
           first_name: "Camden",
           last_name: "Parker",
           capstone: [
@@ -44,12 +167,23 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <h1>Students Index</h1>
-    <div v-for="student in students" v-bind:key="student.id">
-      <h1>{{ student.first_name }} {{ student.last_name }}</h1>
-      <h3>Capstone: {{ student.capstone[0].title }}</h3>
-      <img v-bind:src="student.capstone[0].image" alt="" />
+  <div class="container-md-2">
+    <h1>Students</h1>
+    <div class="row ml-5">
+      <div class="col" v-for="student in students" v-bind:key="student.id">
+        <div class="">
+          <h2>{{ student.first_name }} {{ student.last_name }}</h2>
+          <h3>Capstone: {{ student.capstone[0].title }}</h3>
+          <router-link to="/students/"><img v-bind:src="student.capstone[0].image" /></router-link>
+        </div>
+      </div>
     </div>
   </div>
 </template>
+
+<style>
+img {
+  width: 500px;
+  height: 300px;
+}
+</style>
