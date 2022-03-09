@@ -1,73 +1,23 @@
 <script>
-// import axios from "axios";
+import axios from "axios";
 
 export default {
   data: function () {
     return {
       message: "Welcome to Vue.js!",
       student: {
-        first_name: "Meghan",
-        last_name: "Scherzer",
-        email: "meghan@gmail.com",
-        phone_number: "200-300-4000",
-        short_bio: "A student learning to code.",
-        linkedin_url: "https://www.linkedin.com/in/kevin-gerstein/",
-        twitter_handle: "http://twitter.com/meghanscherzer",
-        personal_blog: "http://github.com/meghanscherzer",
-        online_resume: "http://github.com/meghanscherzer",
-        github_url: "http://github.com/meghanscherzer",
-        photo: "https://hips.hearstapps.com/countryliving.cdnds.net/17/47/1511194376-cavachon-puppy-christmas.jpg",
-        resume_data: {
-          experience: [
-            {
-              start_date: "3/4/20",
-              end_date: "8/19/21",
-              job_title: "teacher",
-              company_name: "cusd 200",
-              details: "I hated being a teacher",
-            },
-            {
-              start_date: "10/10/10",
-              end_date: "12/12/12",
-              job_title: "Software Engineer",
-              company_name: "Google",
-              details: "hi I am a software dude at google",
-            },
-          ],
-          education: [
-            {
-              start_date: "8/13/09",
-              end_date: "8/1/13",
-              degree: "human biology",
-              university_name: "university of kansas",
-              details: "I love college",
-            },
-            {
-              start_date: "9/9/9",
-              end_date: "11/11/11",
-              degree: "Computer Science",
-              university_name: "American University",
-              details: "I have a degree, I am cool.",
-            },
-          ],
-          skills: ["Ruby", "JavaScript", "HTML", "CSS"],
+        combined_attributes: {
+          experience: [],
         },
-        capstone: [
-          {
-            name: "Alternatively Green",
-            description: "blah blah blah",
-            screenshot:
-              "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29tcHV0ZXIlMjBjb2RlfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
-          },
-        ],
       },
     };
   },
   created: function () {
-    // axios.get("/students/" + this.$route.params.id).then((response) => {
-    //   console.log("students show", response);
-    //   this.student = response.data;
-    // });
+    axios.get("/students/1").then((response) => {
+      this.student = response.data;
+      console.log(this.student);
+      console.log(this.student.combined_attributes.experience);
+    });
   },
   methods: {},
 };
@@ -75,33 +25,6 @@ export default {
 
 <template>
   <div class="student-show">
-    <!-- <h1>{{ student.first_name + " " + student.last_name }}</h1>
-    <h5>Experience:</h5>
-    <div v-for="exp in student.resume_data.experience" :key="exp.id">
-      <p>Start date: {{ exp.start_date }}</p>
-      <p>End Date: {{ exp.end_date }}</p>
-      <p>Job Title: {{ exp.job_title }}</p>
-      <p>Company Name: {{ exp.company_name }}</p>
-      <p>Details: {{ exp.details }}</p>
-    </div>
-    <h5>Education:</h5>
-    <div v-for="edu in student.resume_data.education" :key="edu.id">
-      <p>{{ edu.start_date }}</p>
-      <p>{{ edu.end_date }}</p>
-      <p>{{ edu.degree }}</p>
-      <p>{{ edu.university_name }}</p>
-      <p>{{ edu.details }}</p>
-    </div>
-    <h5>Skills:</h5>
-    <div v-for="skill in student.resume_data.skills" :key="skill.id">
-      <p>{{ skill }}</p>
-    </div>
-    <h5>Capstone:</h5>
-    <div v-for="capstone in student.capstone" :key="capstone.id">
-      <p>{{ capstone.name }}</p>
-      <p>{{ capstone.description }}</p>
-      <img :src="capstone.screenshot" alt="" />
-    </div> -->
     <router-link to="/students">Back</router-link>
   </div>
   <body id="page-top">
@@ -165,7 +88,7 @@ export default {
           <h2 class="mb-5">Experience</h2>
           <div
             class="d-flex flex-column flex-md-row justify-content-between mb-5"
-            v-for="exp in student.resume_data.experience"
+            v-for="exp in student.combined_attributes.experience"
             :key="exp.id"
           >
             <div class="flex-grow-1">
@@ -186,7 +109,7 @@ export default {
           <h2 class="mb-5">Education</h2>
           <div
             class="d-flex flex-column flex-md-row justify-content-between mb-5"
-            v-for="edu in student.resume_data.education"
+            v-for="edu in student.combined_attributes.education"
             :key="edu.id"
           >
             <div class="flex-grow-1">
@@ -207,9 +130,9 @@ export default {
           <h2 class="mb-5">Skills</h2>
           <div class="subheading mb-3">Programming Languages & Tools</div>
           <ul class="fa-ul mb-0">
-            <li v-for="skill in student.resume_data.skills" :key="skill.id">
+            <li v-for="skill in student.combined_attributes.skills" :key="skill.id">
               <span class="fa-li"><i class="fas fa-check"></i></span>
-              {{ skill }}
+              {{ skill.name }}
             </li>
           </ul>
         </div>
@@ -221,7 +144,7 @@ export default {
           <h2 class="mb-5">Capstone</h2>
           <div
             class="d-flex flex-column flex-md-row justify-content-between mb-5"
-            v-for="capstone in student.capstone"
+            v-for="capstone in student.combined_attributes.capstones"
             :key="capstone.id"
           >
             <div class="flex-grow-1">
