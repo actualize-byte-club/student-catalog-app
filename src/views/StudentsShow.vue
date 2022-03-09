@@ -66,7 +66,7 @@ export default {
 
 <template>
   <div class="student-show">
-    <h1>{{ student.first_name + student.last_name }}</h1>
+    <h1>{{ student.first_name + " " + student.last_name }}</h1>
     <div v-for="exp in student.resume_data.experience" :key="exp.id">
       <p>{{ exp.start_date }}</p>
       <p>{{ exp.end_date }}</p>
