@@ -71,8 +71,9 @@ export default {
         <div class="social-icons">
           <a class="social-icon" :href="student.linkedin_url"><i class="fab fa-linkedin-in"></i></a>
           <a class="social-icon" :href="student.github_url"><i class="fab fa-github"></i></a>
-          <a class="social-icon" :href="student.twitter_handle"><i class="fab fa-twitter"></i></a>
-          <a class="social-icon" :href="student.twitter_handle"><i class="fab fa-facebook-f"></i></a>
+          <a class="social-icon" :href="`https://twitter.com/${student.twitter_handle}`">
+            <i class="fab fa-twitter"></i>
+          </a>
         </div>
       </div>
     </section>
