@@ -11,7 +11,7 @@ export default {
   },
   methods: {
     indexStudents: function () {
-      axios.get("/students").then((response) => {
+      axios.get("https://byte-club-resume-data-api.herokuapp.com/students").then((response) => {
         console.log("students index", response);
         this.students = response.data;
       });
@@ -31,10 +31,11 @@ export default {
             Capstone:
             <div v-for="capstone in student.capstones" :key="capstone.id">
               {{ capstone.name }}
+              <br />
+              <router-link :to="`/students/${student.id}`">
+                <img v-bind:src="capstone.screenshot" />
+              </router-link>
             </div>
-            <router-link :to="`/students/${student.id}`">
-              <img v-bind:src="student.photo" />
-            </router-link>
           </h3>
         </div>
       </div>
