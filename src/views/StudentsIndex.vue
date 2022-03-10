@@ -21,7 +21,7 @@ export default {
 </script>
 
 <template>
-  <div class="container-md-2">
+  <div id="student-index-page" class="container-md-2">
     <h1>Students</h1>
     <div class="row ml-5">
       <div class="col" v-for="student in students" v-bind:key="student.id">
@@ -46,5 +46,15 @@ export default {
 img {
   width: 500px;
   height: 300px;
+}
+#student-index-page {
+  padding-right: 17em;
+}
+@media (max-width: 992px) {
+  body #student-index-page {
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 </style>
