@@ -29,13 +29,12 @@ export default {
           <h2>{{ student.first_name }} {{ student.last_name }}</h2>
           <h3>
             Capstone:
-
-            <div v-for="capstone in student.combined_attributes.capstones" :key="capstone.id">
+            <div v-for="capstone in student.capstones" :key="capstone.id">
               {{ capstone.name }}
-              <router-link to="/students/">
-                <img v-bind:src="capstones.image" />
-              </router-link>
             </div>
+            <router-link :to="`/students/${student.id}`">
+              <img v-bind:src="student.photo" />
+            </router-link>
           </h3>
         </div>
       </div>
