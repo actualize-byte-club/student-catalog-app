@@ -13,7 +13,7 @@ export default {
     };
   },
   created: function () {
-    axios.get("/students/1").then((response) => {
+    axios.get(`/students/${this.student.id}`).then((response) => {
       this.student = response.data;
       console.log(this.student);
       console.log(this.student.combined_attributes.experience);
